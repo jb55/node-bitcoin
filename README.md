@@ -36,7 +36,7 @@ node-bitcoin library, try it out!
 
     client.getBalance(function(balance) {
       console.log("Balance:", balance);
-    }
+    });
 
 ## TODO
 
