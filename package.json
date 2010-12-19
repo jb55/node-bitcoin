@@ -5,6 +5,7 @@
   "contributors": [ 
     { "name": "Bill Casarin", "email": "jb@jb55.com" },
   ],
+  "dependencies": { "underscore": ">= 1.0.3" },
   "directories": { "lib": "./lib/bitcoin" },
   "engines": { "node": ">= 0.2.3" }
 }
