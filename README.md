@@ -34,3 +34,9 @@ node-bitcoin library, try it out!
       console.log("Balance:", balance);
     }
 
+## TODO
+
+Some things I would like to implement:
+
+* A bitcoin miner pool server
+
