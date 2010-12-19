@@ -7,6 +7,10 @@ The API is equivalent to the API document [here](http://www.bitcoin.org/wiki/dok
 The methods are exposed as lower camelcase methods on the `bitcoin.Client` 
 object.
 
+## Install
+
+`npm install bitcoin`
+
 ## Setup
 
 1. Traverse to `~/.bitcoin` or `~/Library/Application Support/Bitcoin` and add a
