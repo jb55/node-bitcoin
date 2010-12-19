@@ -15,6 +15,7 @@ file called `bitcoin.conf` if it doesn't already exist.
 2. Add these lines to the file:
 
     rpcuser=username
+
     rpcpassword=password
 
 You will use these to login to the server.
