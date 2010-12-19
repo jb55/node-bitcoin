@@ -1,0 +1,10 @@
+{
+  "name": "bitcoin",
+  "description": "Bitcoin client API library and related utilities",
+  "version": "0.0.1",
+  "contributors": [ 
+    { "name": "Bill Casarin", "email": "jb@jb55.com" },
+  ],
+  "directories": { "lib": "./lib/bitcoin" },
+  "engines": { "node": ">= 0.1.98" }
+}
