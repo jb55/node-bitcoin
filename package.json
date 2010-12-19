@@ -6,5 +6,5 @@
     { "name": "Bill Casarin", "email": "jb@jb55.com" },
   ],
   "directories": { "lib": "./lib/bitcoin" },
-  "engines": { "node": ">= 0.1.98" }
+  "engines": { "node": ">= 0.2.3" }
 }
