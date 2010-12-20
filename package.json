@@ -1,7 +1,7 @@
 {
   "name": "bitcoin",
   "description": "Bitcoin client API library and related utilities",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "contributors": [ 
     { "name": "Bill Casarin", "email": "jb@jb55.com" },
   ],

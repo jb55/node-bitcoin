@@ -1,14 +1,8 @@
 
 var bitcoin = require('./lib/bitcoin');
-var client = new bitcoin.Client('localhost', 8332, 'jb55', 'thisisthepassword');
+var client = new bitcoin.Client('localhost', 8355, 'jb55', 'thisisthepassword');
 
-doCmd('getBalance');
-doCmd('getConnectionCount');
-doCmd('getDifficulty');
-doCmd('getInfo');
-doCmd('getHashesPerSecond');
-doCmd('getGenerate');
-doCmd('listTransactions');
+doCmd('getWork');
 
 function doCmd(cmd) {
   client[cmd](function(data) {
