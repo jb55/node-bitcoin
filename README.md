@@ -1,10 +1,10 @@
 
 # node-bitcoin
 
-node-bitcoin is a simple wrapper for the Bitcoin client's JSON-RPC API. 
+node-bitcoin is a simple wrapper for the Bitcoin client's JSON-RPC API.
 
-The API is equivalent to the API document [here](http://www.bitcoin.org/wiki/doku.php?id=api#methods). 
-The methods are exposed as lower camelcase methods on the `bitcoin.Client` 
+The API is equivalent to the API document [here](https://en.bitcoin.it/wiki/Original_Bitcoin_client/API_Calls_list).
+The methods are exposed as lower camelcase methods on the `bitcoin.Client`
 object.
 
 ## Install

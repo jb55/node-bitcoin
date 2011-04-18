@@ -1,6 +1,6 @@
 
 var bitcoin = require('./lib/bitcoin');
-var client = new bitcoin.Client('localhost', 8355, 'jb55', 'thisisthepassword');
+var client = new bitcoin.Client('localhost', 8332, 'jb55', 'thisisthepassword');
 
 doCmd('getWork');
 
