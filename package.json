@@ -3,11 +3,11 @@
   "description": "Bitcoin client API library and related utilities",
   "version": "0.0.2",
   "contributors": [
-    { "name": "Bill Casarin", "email": "jb@jb55.com" },
+    { "name": "Bill Casarin", "email": "jb@jb55.com" }
   ],
   "dependencies": {
     "underscore": ">= 1.0.3",
-    "vows": ">= 0.4.0",
+    "vows": ">= 0.4.0"
   },
   "directories": { "lib": "./lib/bitcoin" },
   "engines": { "node": ">= 0.2.3" }
