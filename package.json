@@ -1,14 +1,22 @@
 {
   "name": "bitcoin",
-  "description": "Bitcoin client API library and related utilities",
-  "version": "0.0.2",
-  "contributors": [
-    { "name": "Bill Casarin", "email": "jb@jb55.com" }
+  "description": "Communicate with bitcoind via JSON-RPC",
+  "version": "0.0.3",
+  "main": "./lib/bitcoin",
+  "keywords": [
+    "bitcoin",
+    "rpc"
   ],
+
+  "author": "Bill Casarin <bill@casarin.ca> (jb55.com)",
+
   "dependencies": {
-    "underscore": ">= 1.0.3",
-    "vows": ">= 0.4.0"
+    "underscore": ">= 1.0.3"
   },
-  "directories": { "lib": "./lib/bitcoin" },
-  "engines": { "node": ">= 0.2.3" }
+
+  "repository": {
+    "type": "git",
+    "url": "https://jb55@github.com/jb55/node-bitcoin.git"
+  }
+
 }
