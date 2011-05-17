@@ -34,6 +34,15 @@ vows.describe('api').addBatch({
       'is valid': function(account){
         assert.ok(account, "Update test variables with a valid address?");
       },
+      'after getting the account\'s address again': {
+        topic: function(account, client) {
+          client.getAccountAddress(account, this.callback);
+        },
+        'should be the same as the original':
+        function(address) {
+          assert.equal(address, test.address);
+        }
+      }
     },
     'getDifficulty': {
       topic: function(client) { client.getDifficulty(this.callback); },
