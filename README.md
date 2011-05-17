@@ -34,7 +34,8 @@ node-bitcoin library, try it out!
     var bitcoin = require('bitcoin');
     var client = new bitcoin.Client('localhost', 8332, 'username', 'password');
 
-    client.getBalance(function(balance) {
+    client.getBalance(function(err, balance) {
+      if (err) return console.log(err);
       console.log("Balance:", balance);
     });
 
