@@ -43,11 +43,18 @@ vows.describe('api').addBatch({
         }
       },
     },
-    'listTransactions': {
+    'listTransactions with specific amount': {
       topic: function(client){
         client.listTransactions(test.account, 15, this.callback);
       },
-      'should not be empty': function(transactions){ assert.ok(transactions); },
+      'should not be empty': function(txs){ assert.ok(txs); },
+      'is an array': function(txs) { assert.isTrue(txs instanceof Array); }
+    },
+    'listTransactions without specific amount': {
+      topic: function(client){
+        client.listTransactions(test.account, this.callback);
+      },
+      'should not be empty': function(txs){ assert.ok(txs); },
       'is an array': function(txs) { assert.isTrue(txs instanceof Array); }
     },
     'account addresses': {
