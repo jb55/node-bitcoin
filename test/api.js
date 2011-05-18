@@ -4,7 +4,7 @@ require.paths.unshift(path.join(__dirname, '..'));
 // test variables
 
 var test = {
-  account: "test"
+    account: "test"
 }
 
 // end test variables
@@ -41,7 +41,14 @@ vows.describe('api').addBatch({
         'should be the same as the original': function(account) {
           assert.equal(account, test.account);
         }
-      }
+      },
+    },
+    'listTransactions': {
+      topic: function(client){
+        client.listTransactions(test.account, 15, this.callback);
+      },
+      'should not be empty': function(transactions){ assert.ok(transactions); },
+      'is an array': function(txs) { assert.isTrue(txs instanceof Array); }
     },
     'account addresses': {
       topic: function(client){
@@ -81,6 +88,6 @@ vows.describe('api').addBatch({
     },
   },
 
-}).run();
+}).export(module);
 
 
