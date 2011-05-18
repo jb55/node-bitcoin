@@ -4,7 +4,7 @@ require.paths.unshift(path.join(__dirname, '..'));
 // test variables
 
 var test = {
-  address: "1GbDSt8XieCHQmkQsZmMirwHoUHJukjwXn"
+  account: "test"
 }
 
 // end test variables
@@ -27,21 +27,28 @@ function notEmpty(data) {
 vows.describe('api').addBatch({
   '': {
     topic: makeClient,
-    'an account': {
+    'an account address': {
       topic: function(client){
-        client.getAccount(test.address, this.callback);
+        client.getAccountAddress(test.account, this.callback);
       },
-      'is valid': function(account){
-        assert.ok(account, "Update test variables with a valid address?");
+      'is valid': function(address){
+        assert.ok(address, "Update test variables with a valid address?");
       },
-      'after getting the account\'s address again': {
-        topic: function(account, client) {
-          client.getAccountAddress(account, this.callback);
+      'after getting the account name again': {
+        topic: function(address, client) {
+          client.getAccount(address, this.callback);
         },
-        'should be the same as the original':
-        function(address) {
-          assert.equal(address, test.address);
+        'should be the same as the original': function(account) {
+          assert.equal(account, test.account);
         }
+      }
+    },
+    'account addresses': {
+      topic: function(client){
+        client.getAddressesByAccount(test.account, this.callback);
+      },
+      'is not empty': function(addresses) {
+        assert.isTrue(addresses && addresses.length > 0);
       }
     },
     'getDifficulty': {
