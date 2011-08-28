@@ -32,7 +32,7 @@ vows.describe('api').addBatch({
         client.getAccountAddress(test.account, this.callback);
       },
       'is valid': function(address){
-        assert.ok(address, "Update test variables with a valid address?");
+        assert.ok(address);
       },
       'after getting the account name again': {
         topic: function(address, client) {
@@ -87,6 +87,10 @@ vows.describe('api').addBatch({
     },
     'help': {
       topic: function(client) { client.help(this.callback); },
+      'should not be empty': notEmpty,
+    },
+    'getWork': {
+      topic: function(client) { client.getWork(this.callback); },
       'should not be empty': notEmpty,
     },
     'getTransaction': {
