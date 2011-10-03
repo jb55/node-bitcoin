@@ -7,16 +7,18 @@
     "bitcoin",
     "rpc"
   ],
-
   "author": "Bill Casarin <bill@casarin.ca> (jb55.com)",
-
   "dependencies": {
     "underscore": ">= 1.0.3"
   },
-
   "repository": {
     "type": "git",
-    "url": "https://jb55@github.com/jb55/node-bitcoin.git"
+    "url": "git://github.com/jb55/node-bitcoin.git"
+  },
+  "devDependencies": {
+    "vows": "*"
+  },
+  "engines": {
+    "node": "*"
   }
-
 }
