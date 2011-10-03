@@ -15,7 +15,9 @@
     "type": "git",
     "url": "git://github.com/jb55/node-bitcoin.git"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "vows": "*"
+  },
   "engines": {
     "node": "*"
   }
