@@ -1,4 +1,3 @@
-
 # node-bitcoin
 
 node-bitcoin is a simple wrapper for the Bitcoin client's JSON-RPC API.
@@ -30,12 +29,12 @@ You will use these to login to the server.
 node-bitcoin library, try it out!
 
 ## Example
+```js
+var bitcoin = require('bitcoin');
+var client = new bitcoin.Client('localhost', 8332, 'username', 'password');
 
-    var bitcoin = require('bitcoin');
-    var client = new bitcoin.Client('localhost', 8332, 'username', 'password');
-
-    client.getBalance(function(err, balance) {
-      if (err) return console.log(err);
-      console.log("Balance:", balance);
-    });
-
+client.getBalance(function(err, balance) {
+  if (err) return console.log(err);
+  console.log("Balance:", balance);
+});
+```
