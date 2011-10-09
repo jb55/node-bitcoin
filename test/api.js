@@ -109,10 +109,11 @@ vows.describe('api').addBatch({
         var client2 = new bitcoin.Client(config);
         var self = this;
         client2.getWork(function(err, work) {
-          self.callback(null, work, client2, client);
+          self.callback(err, work, client2, client);
         });
       },
       'should have same params': function(err, work, client2, client) {
+        assert.isNull(err);
         assert.equal(client2.host, client.host);
         assert.equal(client2.port, client.port);
         assert.equal(client2.user, client.user);
