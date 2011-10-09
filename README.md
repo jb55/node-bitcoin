@@ -28,13 +28,30 @@ You will use these to login to the server.
 4. You should now be able to communicate with Bitcoin JSON-RPC API using the
 node-bitcoin library, try it out!
 
-## Example
+## Examples
+
+### Create client
 ```js
 var bitcoin = require('bitcoin');
 var client = new bitcoin.Client('localhost', 8332, 'username', 'password');
+```
 
-client.getBalance(function(err, balance) {
+### Create client with single object
+```js
+var client = new bitcoin.Client({
+  host: 'localhost',
+  port: 8332,
+  username: 'username',
+  password: 'password'
+});
+```
+
+### Get balance across all accounts with minimum confirmations of 6
+
+```js
+
+client.getBalance('*', 6, function(err, balance) {
   if (err) return console.log(err);
-  console.log("Balance:", balance);
+  console.log('Balance:', balance);
 });
 ```
