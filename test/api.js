@@ -5,7 +5,14 @@ require.paths.unshift(path.join(__dirname, '..'));
 
 var test = {
     account: "test"
-}
+};
+
+var config = {
+    host: 'localhost',
+    port: 8332,
+    user: 'jb55',
+    pass: 'thisisthepassword'
+};
 
 // end test variables
 
@@ -15,7 +22,7 @@ var vows = require('vows'),
 var bitcoin = require('lib/bitcoin');
 
 function makeClient() {
-  return new bitcoin.Client('localhost', 8332, 'jb55', 'thisisthepassword');
+  return new bitcoin.Client(config.host, config.port, config.user, config.pass);
 }
 
 function notEmpty(data) {
@@ -96,6 +103,24 @@ vows.describe('api').addBatch({
     'getTransaction': {
       topic: "TODO: get valid transaction",
       'should not be empty': notEmpty,
+    },
+    'client creation with single object': {
+      topic: function(client){
+        var client2 = new bitcoin.Client(config);
+        var self = this;
+        client2.getWork(function(err, work) {
+          self.callback(null, work, client2, client);
+        });
+      },
+      'should have same params': function(err, work, client2, client) {
+        assert.equal(client2.host, client.host);
+        assert.equal(client2.port, client.port);
+        assert.equal(client2.user, client.user);
+        assert.equal(client2.pass, client.pass);
+      },
+      'getWork should be an object': function(work) {
+        assert.isObject(work);
+      }
     },
   },
 

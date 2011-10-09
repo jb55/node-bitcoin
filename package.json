@@ -20,5 +20,8 @@
   },
   "engines": {
     "node": "*"
+  },
+  "scripts": {
+    "test": "node test/api.js"
   }
 }
