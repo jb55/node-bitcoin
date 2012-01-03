@@ -6,6 +6,15 @@ The API is equivalent to the API document [here](https://en.bitcoin.it/wiki/Orig
 The methods are exposed as lower camelcase methods on the `bitcoin.Client`
 object.
 
+You can choose to ignore the helper methods and call the api directly like so:
+
+```js
+client.cmd('getbalance', '*', 6, function(err, balance){
+  if (err) return console.log(err);
+  console.log('Balance:', balance);
+});
+```
+
 ## Install
 
 `npm install bitcoin`
