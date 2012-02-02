@@ -1,5 +1,4 @@
 var path = require('path');
-require.paths.unshift(path.join(__dirname, '..'));
 
 // test variables
 
@@ -19,7 +18,7 @@ var config = {
 var vows = require('vows'),
     assert = require('assert');
 
-var bitcoin = require('lib/bitcoin');
+var bitcoin = require('../lib/bitcoin');
 
 function makeClient() {
   return new bitcoin.Client(config.host, config.port, config.user, config.pass);
