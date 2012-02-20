@@ -9,7 +9,8 @@
   ],
   "author": "Bill Casarin <bill@casarin.ca> (jb55.com)",
   "dependencies": {
-    "underscore": ">= 1.0.3"
+    "underscore": ">= 1.0.3",
+	"jsonrpc2": ">= 0.1.0"
   },
   "repository": {
     "type": "git",
