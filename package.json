@@ -1,7 +1,7 @@
 {
   "name": "bitcoin",
   "description": "Communicate with bitcoind via JSON-RPC",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "main": "./lib/bitcoin",
   "keywords": [
     "bitcoin",
@@ -23,5 +23,6 @@
   },
   "scripts": {
     "test": "node test/api.js"
-  }
+  },
+  "optionalDependencies": {}
 }
