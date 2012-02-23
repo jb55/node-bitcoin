@@ -122,6 +122,28 @@ vows.describe('api').addBatch({
         assert.isObject(work);
       }
     },
+    'getblocknumber is deprecated': {
+      topic: function(client) {
+        client.cmd('getblocknumber', this.callback);
+      },
+      'and has been replaced by getblockcount': {
+        topic: function(number, client) {
+          client.cmd('getblockcount', this.callback);
+        },
+        'getBlockNumber uses getblockcount': {
+          topic: function(count, number, client) {
+            var self = this;
+            client.getBlockNumber(function(err, number2) {
+              self.callback(err, number2, count, number);
+            });
+          },
+          'and should match both': function(err, number2, count, number) {
+            assert.equal(number2, count);
+            assert.equal(number2, number);
+          }
+        }
+      }
+    }
   },
 
 }).export(module);
