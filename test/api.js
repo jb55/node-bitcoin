@@ -6,12 +6,7 @@ var test = {
     account: "test"
 };
 
-var config = {
-    host: 'localhost',
-    port: 8332,
-    user: 'jb55',
-    pass: 'thisisthepassword'
-};
+var config = require('./config');
 
 // end test variables
 
@@ -143,9 +138,19 @@ vows.describe('api').addBatch({
           }
         }
       }
+    },
+    "creating a bitcoin related error": {
+      topic: function(client) {
+        client.cmd('nomethod', this.callback);
+      },
+      "should create non-null err in callback": function(err, expectedValue) {
+        assert.deepEqual(err, {
+          code: -32601,
+          message: 'Method not found'
+        });
+        assert.equal(expectedValue, undefined);
+      }
     }
-  },
-
+  }
+  
 }).export(module);
-
-
