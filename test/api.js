@@ -3,7 +3,7 @@ var path = require('path');
 // test variables
 
 var test = {
-    account: "test"
+    account: 'test'
 };
 
 var config = require('./config');
@@ -139,18 +139,40 @@ vows.describe('api').addBatch({
         }
       }
     },
-    "creating a bitcoin related error": {
+    'creating a bitcoin related error': {
       topic: function(client) {
         client.cmd('nomethod', this.callback);
       },
-      "should create non-null err in callback": function(err, expectedValue) {
+      'should create non-null err in callback': function(err, expectedValue) {
         assert.deepEqual(err, {
           code: -32601,
           message: 'Method not found'
         });
         assert.equal(expectedValue, undefined);
-      }
-    }
-  }
+      },
+    },
+  },
+  'invalid credentials': {
+    topic: function() {
+      return new bitcoin.Client(config.host, config.port, 'baduser', 'badpwd');
+    },
+    'should still return client object': function(client) {
+      assert.equal(typeof client, 'object');
+      assert.equal(client.host, config.host);
+      assert.equal(client.port, config.port);
+      assert.equal(client.user, 'baduser');
+      assert.equal(client.pass, 'badpwd');
+    },
+    'will return status 401 with html': {
+      topic: function(client) {
+        client.getDifficulty(this.callback);
+      },
+      'and should be able to handle it': function(err, difficulty) {
+        assert.isNotNull(err);
+        assert.isObject(err);
+        assert.equal(difficulty, undefined);
+      },
+    },
+  },
   
 }).export(module);
