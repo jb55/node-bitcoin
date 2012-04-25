@@ -22,7 +22,7 @@
     "node": ">=0.2.6"
   },
   "scripts": {
-    "test": "node test/api.js"
+    "test": "make test"
   },
   "optionalDependencies": {}
 }
