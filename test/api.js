@@ -143,11 +143,10 @@ vows.describe('api').addBatch({
       topic: function(client) {
         client.cmd('nomethod', this.callback);
       },
-      'should create non-null err in callback': function(err, expectedValue) {
-        assert.deepEqual(err, {
-          code: -32601,
-          message: 'Method not found'
-        });
+      'should pass Error object in callback': function(err, expectedValue) {
+        assert.instanceOf(err, Error);
+        assert.equal(err.message, 'Method not found');
+        assert.equal(err.code, -32601);
         assert.equal(expectedValue, undefined);
       },
     },
@@ -168,8 +167,9 @@ vows.describe('api').addBatch({
         client.getDifficulty(this.callback);
       },
       'and should be able to handle it': function(err, difficulty) {
-        assert.isNotNull(err);
-        assert.isObject(err);
+        assert.instanceOf(err, Error);
+        assert.equal(err.message, 'Invalid params, response status code: 401');
+        assert.equal(err.code, -32602);
         assert.equal(difficulty, undefined);
       },
     },
