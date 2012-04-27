@@ -1,5 +1,9 @@
 # node-bitcoin changelog
 
+## v1.2.2 (2012/04/26)
+Fix callback being called twice when a client and request error
+occur on the same command call.
+
 ## v1.2.1 (2012/04/26)
 * Add missing `getBlock` command
 

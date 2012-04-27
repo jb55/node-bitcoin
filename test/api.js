@@ -174,5 +174,21 @@ vows.describe('api').addBatch({
       },
     },
   },
+  'creating a client on a non-listening port': {
+    topic: function() {
+      return new bitcoin.Client(config.host, 9897, 'baduser', 'badpwd');
+    },
+    'will return client object': function(client) {
+      assert.equal(typeof client, 'object');
+    },
+    'but when calling a command': {
+      topic: function(client) {
+        client.listSinceBlock(this.callback);
+      },
+      'should not call callback more than once': function(err, result) {
+        assert.instanceOf(err, Error);
+      }
+    }
+  }
   
 }).export(module);
