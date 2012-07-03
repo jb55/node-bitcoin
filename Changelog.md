@@ -1,7 +1,7 @@
 # node-bitcoin changelog
 
 ## v1.3.0 (2012/07/03)
-Changed use of http.createClient() (deprecated in node v0.8.x) to http.request()
+Change use of http.createClient() (deprecated in node v0.8.x) to http.request()
 
 ## v1.2.2 (2012/04/26)
 Fix callback being called twice when a client and request error
