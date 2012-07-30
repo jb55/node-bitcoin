@@ -1,6 +1,6 @@
 # node-bitcoin
 
-[![Build Status](https://secure.travis-ci.org/jb55/node-bitcoin.png)](http://travis-ci.org/jb55/node-bitcoin)
+[![Build Status](https://secure.travis-ci.org/freewil/node-bitcoin.png)](http://travis-ci.org/freewil/node-bitcoin)
 
 node-bitcoin is a simple wrapper for the Bitcoin client's JSON-RPC API.
 

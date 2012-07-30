@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/jb55/node-bitcoin.git"
+    "url": "git://github.com/freewil/node-bitcoin.git"
   },
   "devDependencies": {
     "vows": "0.6.x"
