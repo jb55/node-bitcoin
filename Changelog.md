@@ -1,5 +1,8 @@
 # node-bitcoin changelog
 
+## v1.3.1 (2012/08/19)
+Remove `underscore` dependency
+
 ## v1.3.0 (2012/07/03)
 Change use of http.createClient() (deprecated in node v0.8.x) to http.request()
 
