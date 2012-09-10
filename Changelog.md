@@ -1,5 +1,17 @@
 # node-bitcoin changelog
 
+## v1.4.0 (2012/09/09)
+* New commands for bitcoin v0.7.0
+  * `createRawTransaction`
+  * `decodeRawTransaction`
+  * `getPeerInfo`
+  * `getRawMemPool`
+  * `getRawTransaction`
+  * `listUnspent`
+  * `sendRawTransaction`
+  * `signRawTransaction`
+* Remove deprecated `getBlockNumber`
+
 ## v1.3.1 (2012/08/19)
 Remove `underscore` dependency
 
