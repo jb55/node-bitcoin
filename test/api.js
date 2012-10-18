@@ -25,6 +25,8 @@ function notEmpty(data) {
   assert.ok(data);
 }
 
+var batchCallbackCount = 0;
+
 vows.describe('api').addBatch({
   '': {
     topic: makeClient,
@@ -134,6 +136,29 @@ vows.describe('api').addBatch({
         assert.equal(expectedValue, undefined);
       },
     },
+    'running batch of rpc calls': {
+      topic: function(client) {
+        // create batch of calls to get 10 new addresses
+        var batch = [];
+        for (var i = 0; i < 10; ++i) {
+          batch.push({
+            method: 'getnewaddress',
+            params: [test.account]
+          });
+        }
+        var self = this;
+        client.cmd(batch, function(err, address) {
+          assert.isTrue(++batchCallbackCount <= 10);
+          if (batchCallbackCount === 10) {
+            self.callback(err, address);
+          }
+        });
+      },
+      'should receive new address': function(err, address){
+        assert.equal(err, null);
+        assert.ok(address);
+      }
+    }
   },
   'invalid credentials': {
     topic: function() {

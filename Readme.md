@@ -64,3 +64,19 @@ client.cmd('getbalance', '*', 6, function(err, balance){
   console.log('Balance:', balance);
 });
 ```
+
+### Batch multiple RPC calls into single HTTP request
+
+```js
+var batch = [];
+for (var i = 0; i < 10; ++i) {
+  batch.push({
+    method: 'getnewaddress',
+    params: ['myaccount']
+  });
+}
+client.cmd(batch, function(err, address) {
+  if (err) return console.log(err);
+  console.log('Address:', address);
+});
+```
