@@ -60,7 +60,13 @@ vows.describe('api').addBatch({
     },
     'account addresses': {
       topic: function(client){
-        client.getAddressesByAccount(test.account, this.callback);
+        var self = this;
+        client.getNewAddress(test.account, function(err, address) {
+          if (err) {
+            return self.callback(err);
+          }
+          client.getAddressesByAccount(test.account, self.callback);
+        });
       },
       'is not empty': function(addresses) {
         assert.isTrue(addresses && addresses.length > 0);

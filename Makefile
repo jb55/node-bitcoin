@@ -14,7 +14,7 @@ stop:
 	$(MAKE) -C $(BOX) stop
 	
 run-test:
-	$(VOWS) test/api.js
+	$(VOWS) --spec test/api.js
 	
 clean:
 	$(MAKE) -C $(BOX) clean

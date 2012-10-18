@@ -1,6 +1,6 @@
 module.exports = {
   host: 'localhost',
-  port: 8332,
+  port: 19001,
   user: 'admin1',
   pass: '123'
 };
