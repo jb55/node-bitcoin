@@ -1,5 +1,10 @@
 # node-bitcoin changelog
 
+## v1.5.0 (2012/10/22)
+* Remove `getBlockNumber` test
+* Upgrade testnet-box
+* Add RPC call batching (multiple RPC calls within one HTTP request)
+
 ## v1.4.0 (2012/09/09)
 * New commands for bitcoin v0.7.0
   * `createRawTransaction`
