@@ -12,24 +12,6 @@ object, or you may call the API directly using the `cmd` method.
 
 `npm install bitcoin`
 
-## Setup
-
-1. Traverse to `~/.bitcoin` or `~/Library/Application Support/Bitcoin` and add a
-file called `bitcoin.conf` if it doesn't already exist.
-
-2. Add these lines to the file:
-
-    rpcuser=username
-
-    rpcpassword=password
-
-You will use these to login to the server.
-
-3. Start your Bitcoin client with the `-server` argument or run `bitcoind`
-
-4. You should now be able to communicate with Bitcoin JSON-RPC API using the
-node-bitcoin library, try it out!
-
 ## Examples
 
 ### Create client
