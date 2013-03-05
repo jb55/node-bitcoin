@@ -1,4 +1,4 @@
-VOWS=./node_modules/.bin/vows
+MOCHA=./node_modules/.bin/mocha
 BOX=test/testnet-box
 
 test:
@@ -14,7 +14,7 @@ stop:
 	$(MAKE) -C $(BOX) stop
 	
 run-test:
-	$(VOWS) --spec test/api.js
+	$(MOCHA)
 	
 clean:
 	$(MAKE) -C $(BOX) clean
