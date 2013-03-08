@@ -1,6 +1,7 @@
 # node-bitcoin changelog
 
 ## v1.6.0 (2013/03/08)
+* drop node 0.6.x support
 * change test runner from `vows` to `mocha`
 * upgrade testnet-box
 * add commands for bitcoind v0.8.0

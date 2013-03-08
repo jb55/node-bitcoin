@@ -18,15 +18,15 @@
     "mocha": "~1.8.1",
     "clone": "~0.1.6"
   },
+  "optionalDependencies": {},
   "repository": {
     "type": "git",
     "url": "git://github.com/freewil/node-bitcoin.git"
   },
   "engines": {
-    "node": ">= 0.6.0 < 0.9.0"
+    "node": "0.8.x"
   },
   "scripts": {
     "test": "make test"
-  },
-  "optionalDependencies": {}
+  }
 }
