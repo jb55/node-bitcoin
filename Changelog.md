@@ -1,12 +1,23 @@
 # node-bitcoin changelog
 
+## v1.6.0 (2013/03/08)
+* change test runner from `vows` to `mocha`
+* upgrade testnet-box
+* add commands for bitcoind v0.8.0
+  * `addNode`
+  * `getAddedNodeInfo`
+  * `listLockUnspent`
+  * `lockUnspent`
+* deprecate creating `bitcoin.Client` with more than one argument
+* add SSL support
+
 ## v1.5.0 (2012/10/22)
-* Remove `getBlockNumber` test
-* Upgrade testnet-box
-* Add RPC call batching (multiple RPC calls within one HTTP request)
+* remove `getBlockNumber` test
+* upgrade testnet-box
+* add RPC call batching (multiple RPC calls within one HTTP request)
 
 ## v1.4.0 (2012/09/09)
-* New commands for bitcoin v0.7.0
+* add commands for bitcoind v0.7.0
   * `createRawTransaction`
   * `decodeRawTransaction`
   * `getPeerInfo`
@@ -15,7 +26,7 @@
   * `listUnspent`
   * `sendRawTransaction`
   * `signRawTransaction`
-* Remove deprecated `getBlockNumber`
+* remove deprecated `getBlockNumber`
 
 ## v1.3.1 (2012/08/19)
 Remove `underscore` dependency
@@ -28,14 +39,14 @@ Fix callback being called twice when a client and request error
 occur on the same command call.
 
 ## v1.2.1 (2012/04/26)
-* Add missing `getBlock` command
+* add missing `getBlock` command
 
 ## v1.2.0 (2012/04/25)
-* Submoduled testnet-box for running tests
+* submodule testnet-box for running tests
 * err objects should all now be an instance of Error
 
 ## v1.1.6 (2012/04/11)
-* New commands for bitcoin v0.6.0
+* add commands for bitcoind v0.6.0
   * `addMultiSigAddress` (only available in testnet)
   * `dumpPrivKey`
   * `getBlockHash`
