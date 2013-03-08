@@ -1,6 +1,10 @@
 var assert = require('assert'),
     bitcoin = require('../lib/bitcoin'),
-    config = require('./config');
+    config = require('./config'),
+    deprecate = require('deprecate');
+
+// hide deprecation warnings    
+deprecate.silence = true;
 
 var test = {
   account: 'test'

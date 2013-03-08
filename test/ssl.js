@@ -1,0 +1,56 @@
+var assert = require('assert'),
+    fs = require('fs'),
+    clone = require('clone'),
+    bitcoin = require('../lib/bitcoin'),
+    config = require('./config');
+    
+var getInfo = function(opts, cb) {
+  var client = new bitcoin.Client(opts);
+  client.getInfo(cb);
+};
+    
+describe('Client SSL', function() {
+  it('use sslStrict by default', function(done) {
+    var opts = clone(config);
+    opts.ssl = true;
+    getInfo(opts, function(err, info) {
+      assert.ok(err instanceof Error);
+      assert.equal(err.message, 'DEPTH_ZERO_SELF_SIGNED_CERT');
+      done();
+    });
+  });
+  
+  it('strictSSL should fail with self-signed certificate', function(done) {
+    var opts = clone(config);
+    opts.ssl = true;
+    opts.sslStrict = true;
+    getInfo(opts, function(err, info) {
+      assert.ok(err instanceof Error);
+      assert.equal(err.message, 'DEPTH_ZERO_SELF_SIGNED_CERT');
+      done();
+    });
+  });
+  
+  it('self-signed certificate with sslStrict false', function(done) {
+    var opts = clone(config);
+    opts.ssl = true;
+    opts.sslStrict = false;
+    getInfo(opts, function(err, info) {
+      assert.ifError(err);
+      assert.ok(info);
+      done();
+    });
+  });
+  
+  it('self-signed certificate with sslStrict and CA specified', function(done) {
+    var opts = clone(config);
+    opts.ssl = true;
+    opts.sslCa = fs.readFileSync(__dirname + '/testnet-box/1/testnet3/server.cert');
+    getInfo(opts, function(err, info) {
+      assert.ifError(err);
+      assert.ok(info);
+      done();
+    });
+  });
+  
+});

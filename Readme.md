@@ -16,12 +16,6 @@ object, or you may call the API directly using the `cmd` method.
 
 ### Create client
 ```js
-var bitcoin = require('bitcoin');
-var client = new bitcoin.Client('localhost', 8332, 'username', 'password');
-```
-
-### Create client with single object
-```js
 var client = new bitcoin.Client({
   host: 'localhost',
   port: 8332,
@@ -60,5 +54,29 @@ for (var i = 0; i < 10; ++i) {
 client.cmd(batch, function(err, address) {
   if (err) return console.log(err);
   console.log('Address:', address);
+});
+```
+
+## SSL
+See [Enabling SSL on original client](https://en.bitcoin.it/wiki/Enabling_SSL_on_original_client_daemon).
+
+If you're using this to connect to bitcoind across a network it is highly
+recommended to use SSL, otherwise an attacker may interecept your RPC credentials
+resulting in theft of your Bitcoins.
+
+When enabling `ssl` by setting the configuration option to `true`, the `sslStrict`
+option will also be enabled by default. It is highly recommended to specify the
+CA as well to ensure you are not connecting to an attacker's bitcoind attempting
+to impersonate your own bitcoind.
+
+```js
+var client = new bitcoin.Client({
+  host: 'localhost',
+  port: 8332,
+  user: 'username',
+  pass: 'password',
+  ssl: true
+  sslStrict: true,
+  sslCa: fs.readFileSync(__dirname + '/myca.cert')
 });
 ```

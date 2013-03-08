@@ -11,9 +11,12 @@
   "contributors": [
     "Sean Lavine <sean@eternalrise.com>"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "deprecate": "~0.1.0"
+  },
   "devDependencies": {
-    "mocha": "~1.8.1"
+    "mocha": "~1.8.1",
+    "clone": "~0.1.6"
   },
   "repository": {
     "type": "git",
