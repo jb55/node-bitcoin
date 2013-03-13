@@ -1,7 +1,7 @@
 var assert = require('assert'),
     fs = require('fs'),
     clone = require('clone'),
-    bitcoin = require('../lib/bitcoin'),
+    bitcoin = require('../'),
     config = require('./config');
     
 var getInfo = function(opts, cb) {

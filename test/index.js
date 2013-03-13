@@ -1,5 +1,5 @@
 var assert = require('assert'),
-    bitcoin = require('../lib/bitcoin'),
+    bitcoin = require('../'),
     config = require('./config'),
     deprecate = require('deprecate');
 
