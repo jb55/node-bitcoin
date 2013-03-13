@@ -24,7 +24,7 @@
     "url": "git://github.com/freewil/node-bitcoin.git"
   },
   "engines": {
-    "node": "0.8.x"
+    "node": ">= 0.8.0"
   },
   "scripts": {
     "test": "make test"

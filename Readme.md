@@ -61,13 +61,14 @@ client.cmd(batch, function(err, address) {
 See [Enabling SSL on original client](https://en.bitcoin.it/wiki/Enabling_SSL_on_original_client_daemon).
 
 If you're using this to connect to bitcoind across a network it is highly
-recommended to use SSL, otherwise an attacker may intercept your RPC credentials
+recommended to enable `ssl`, otherwise an attacker may intercept your RPC credentials
 resulting in theft of your Bitcoins.
 
 When enabling `ssl` by setting the configuration option to `true`, the `sslStrict`
-option will also be enabled by default. It is highly recommended to specify the
-CA as well to ensure you are not connecting to an attacker's bitcoind attempting
-to impersonate your own bitcoind.
+option (verifies the server certificate) will also be enabled by default. It is 
+highly recommended to specify the `sslCa` as well, even if your bitcoind has
+a certificate signed by an actual CA, to ensure you are connecting
+to your own bitcoind.
 
 ```js
 var client = new bitcoin.Client({
