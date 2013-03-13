@@ -49,12 +49,9 @@ Client.prototype.call = function(method, params, callback, errback, path) {
       'Host': this.host,
       'Content-Length': requestJSON.length
     },
-    agent: false
+    agent: false,
+    rejectUnauthorized: this.ssl && this.sslStrict
   };
-  
-  if (this.ssl && this.sslStrict) {
-    requestOptions.rejectUnauthorized = true;
-  }
   
   if (this.ssl && this.sslCa) {
     requestOptions.ca = this.sslCa;
