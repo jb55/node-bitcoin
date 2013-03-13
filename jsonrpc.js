@@ -1,16 +1,9 @@
 var http = require('http'),
     https = require('https');
 
-var Client = function(port, host, user, password, ssl, sslStrict, sslCa) {
-  this.port = port;
-  this.host = host;
-  this.user = user;
-  this.password = password;
-  
-  this.ssl = ssl ? true : false;
-  this.sslStrict = sslStrict ? true : false;
-  this.http = this.ssl ? https : http;
-  this.sslCa = sslCa;
+var Client = function(opts) {
+  this.opts = opts || {};
+  this.http = this.opts.ssl ? https : http;
 };
 
 Client.prototype.call = function(method, params, callback, errback, path) {
@@ -41,25 +34,25 @@ Client.prototype.call = function(method, params, callback, errback, path) {
 
   // prepare request options
   var requestOptions = {
-    host: this.host,
-    port: this.port,
+    host: this.opts.host,
+    port: this.opts.port,
     method: 'POST',
     path: path || '/',
     headers: {
-      'Host': this.host,
+      'Host': this.opts.host,
       'Content-Length': requestJSON.length
     },
     agent: false,
-    rejectUnauthorized: this.ssl && this.sslStrict
+    rejectUnauthorized: this.opts.ssl && this.opts.sslStrict !== false
   };
   
-  if (this.ssl && this.sslCa) {
-    requestOptions.ca = this.sslCa;
+  if (this.opts.ssl && this.opts.sslCa) {
+    requestOptions.ca = this.opts.sslCa;
   }
     
   // use HTTP auth if user and password set
-  if (this.user && this.password) {
-    requestOptions.auth = this.user + ':' + this.password;
+  if (this.opts.user && this.opts.pass) {
+    requestOptions.auth = this.opts.user + ':' + this.opts.pass;
   }
     
   // Now we'll make a request to the server

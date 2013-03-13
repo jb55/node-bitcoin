@@ -132,14 +132,14 @@ describe('Client', function() {
   it('client creation with single object', function(done) {
     var client = makeClient();
     var client2 = new bitcoin.Client(config);
+    assert.equal(client2.rpc.opts.host, client.rpc.opts.host);
+    assert.equal(client2.rpc.opts.port, client.rpc.opts.port);
+    assert.equal(client2.rpc.opts.user, client.rpc.opts.user);
+    assert.equal(client2.rpc.opts.pass, client.rpc.opts.pass);
     client2.getWork(function(err, work) {
       assert.ifError(err);
       notEmpty(work);
       assert.ok(typeof work === 'object');
-      assert.equal(client2.host, client.host);
-      assert.equal(client2.port, client.port);
-      assert.equal(client2.user, client.user);
-      assert.equal(client2.pass, client.pass);
       done();
     });
   });
@@ -178,11 +178,7 @@ describe('Client', function() {
     var client = new bitcoin.Client(config.host, config.port, 'baduser', 'badpwd');
     
     it('should still return client object', function(done) {
-      assert.equal(typeof client, 'object');
-      assert.equal(client.host, config.host);
-      assert.equal(client.port, config.port);
-      assert.equal(client.user, 'baduser');
-      assert.equal(client.pass, 'badpwd');
+      assert.ok(client instanceof bitcoin.Client);
       done();
     });
     
