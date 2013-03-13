@@ -1,7 +1,10 @@
 # node-bitcoin changelog
 
+## v1.6.1 (2013/03/13)
+* add node v0.10.x support (rejectUnauthorized defaults to true in 0.10.x)
+
 ## v1.6.0 (2013/03/08)
-* drop node 0.6.x support
+* drop node v0.6.x support
 * change test runner from `vows` to `mocha`
 * upgrade testnet-box
 * add commands for bitcoind v0.8.0
