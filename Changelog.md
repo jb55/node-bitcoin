@@ -1,5 +1,8 @@
 # node-bitcoin changelog
 
+## v1.6.2 (2013/03/21)
+* shrink package size via .npmignore
+
 ## v1.6.1 (2013/03/13)
 * add node v0.10.x support (rejectUnauthorized defaults to true in 0.10.x)
 
