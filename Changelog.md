@@ -1,5 +1,17 @@
 # node-bitcoin changelog
 
+## v1.7.0 (2013/05/05)
+* add missing commands from bitcoind v0.7.0
+  * `createMultiSig`
+  * `getBlockTemplate`
+  * `getTxOut`
+  * `getTxOutSetInfo`
+  * `listAddressGroupings`
+  * `submitBlock`
+* deprecate commands
+  * `getMemoryPool`
+  * `getMemorypool`
+
 ## v1.6.2 (2013/03/21)
 * shrink package size via .npmignore
 
