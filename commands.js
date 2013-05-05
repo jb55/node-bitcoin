@@ -2,6 +2,7 @@ module.exports = {
   addMultiSigAddress: 'addmultisigaddress',
   addNode: 'addnode', // bitcoind v0.8.0+
   backupWallet: 'backupwallet',
+  createMultiSig: 'createmultisig',
   createRawTransaction: 'createrawtransaction', // bitcoind v0.7.0+
   decodeRawTransaction: 'decoderawtransaction', // bitcoind v0.7.0+
   dumpPrivKey: 'dumpprivkey',
@@ -14,14 +15,15 @@ module.exports = {
   getBlock: 'getblock',
   getBlockCount: 'getblockcount',
   getBlockHash: 'getblockhash',
+  getBlockTemplate: 'getblocktemplate', // bitcoind v0.7.0+
   getConnectionCount: 'getconnectioncount',
   getDifficulty: 'getdifficulty',
   getGenerate: 'getgenerate',
   getHashesPerSecond: 'gethashespersec',
   getHashesPerSec: 'gethashespersec',
   getInfo: 'getinfo',
-  getMemorypool: 'getmemorypool',
-  getMemoryPool: 'getmemorypool',
+  getMemorypool: 'getmemorypool', // replaced in bitcoind v0.7.0 with 
+  getMemoryPool: 'getmemorypool', // `getblocktemplate`, `submitblock`, `getrawmempool`
   getMiningInfo: 'getmininginfo',
   getNewAddress: 'getnewaddress',
   getPeerInfo: 'getpeerinfo', // bitcoind v0.7.0+
@@ -30,13 +32,16 @@ module.exports = {
   getReceivedByAccount: 'getreceivedbyaccount',
   getReceivedByAddress: 'getreceivedbyaddress',
   getTransaction: 'gettransaction',
+  getTxOut: 'gettxout', // bitcoind v0.7.0+
+  getTxOutSetInfo: 'gettxoutsetinfo', // bitcoind v0.7.0+
   getWork: 'getwork',
   help: 'help',
   importPrivKey: 'importprivkey',
   keypoolRefill: 'keypoolrefill',
   keyPoolRefill: 'keypoolrefill',
   listAccounts: 'listaccounts',
-  listLockUnspent: 'listlockunspent', // bitcoind v0.8.0
+  listAddressGroupings: 'listaddressgroupings', // bitcoind v0.7.0+
+  listLockUnspent: 'listlockunspent', // bitcoind v0.8.0+
   listReceivedByAccount: 'listreceivedbyaccount',
   listReceivedByAddress: 'listreceivedbyaddress',
   listSinceBlock: 'listsinceblock',
@@ -54,6 +59,7 @@ module.exports = {
   signMessage: 'signmessage',
   signRawTransaction: 'signrawtransaction', // bitcoind v0.7.0+
   stop: 'stop',
+  submitBlock: 'submitblock', // bitcoind v0.7.0+
   validateAddress: 'validateaddress',
   verifyMessage: 'verifymessage',
   walletLock: 'walletlock',
