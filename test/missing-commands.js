@@ -1,7 +1,7 @@
 var assert = require('assert'),
     bitcoin = require('../'),
     config = require('./config'),
-    commands = require('../commands');
+    commands = require('../lib/commands');
     
 describe('Client Commands', function() {
   

@@ -2,7 +2,7 @@
   "name": "bitcoin",
   "description": "Communicate with bitcoind via JSON-RPC",
   "version": "1.6.2",
-  "main": "index.js",
+  "main": "lib/index.js",
   "keywords": [
     "bitcoin",
     "rpc"
