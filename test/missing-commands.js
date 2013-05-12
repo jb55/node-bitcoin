@@ -13,16 +13,14 @@ var getHelpCommands = function(client, cb) {
     
     // split up the command list by newlines
     var commandListLines = commandList.split('\n');
-    commandListLines.forEach(function(commandListLine) {
-      
-      // get the actual name of the command from the command list line
-      var result = commandRegex.exec(commandListLine);
+    var result;
+    for (var i in commandListLines) {
+      result = commandRegex.exec(commandListLines[i]);
       if (!result) {
-        return cb(new Error('command list line failed to match regex: ' + commandListLine));
+        return cb(new Error('command list line failed to match regex: ' + commandListLines[i]));
       }
       helpCommands.push(result[1]);
-    });
-    
+    }
     cb(null, helpCommands);
   });
 };
