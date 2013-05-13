@@ -62,7 +62,7 @@ See [Enabling SSL on original client](https://en.bitcoin.it/wiki/Enabling_SSL_on
 
 If you're using this to connect to bitcoind across a network it is highly
 recommended to enable `ssl`, otherwise an attacker may intercept your RPC credentials
-resulting in theft of your Bitcoins.
+resulting in theft of your bitcoins.
 
 When enabling `ssl` by setting the configuration option to `true`, the `sslStrict`
 option (verifies the server certificate) will also be enabled by default. It is 
