@@ -1,17 +1,14 @@
 var assert = require('assert'),
+    clone = require('clone'),
     bitcoin = require('../'),
-    config = require('./config'),
-    deprecate = require('deprecate');
-
-// hide deprecation warnings    
-deprecate.silence = true;
+    config = require('./config');
 
 var test = {
   account: 'test'
 };
 
 var makeClient = function makeClient() {
-  return new bitcoin.Client(config.host, config.port, config.user, config.pass);
+  return new bitcoin.Client(config);
 };
 
 var notEmpty = function notEmpty(data) {
@@ -129,21 +126,6 @@ describe('Client', function() {
     });
   });
   
-  it('client creation with single object', function(done) {
-    var client = makeClient();
-    var client2 = new bitcoin.Client(config);
-    assert.equal(client2.rpc.opts.host, client.rpc.opts.host);
-    assert.equal(client2.rpc.opts.port, client.rpc.opts.port);
-    assert.equal(client2.rpc.opts.user, client.rpc.opts.user);
-    assert.equal(client2.rpc.opts.pass, client.rpc.opts.pass);
-    client2.getWork(function(err, work) {
-      assert.ifError(err);
-      notEmpty(work);
-      assert.ok(typeof work === 'object');
-      done();
-    });
-  });
-  
   it('bitcoin related error should be an Error object', function(done) {
     var client = makeClient();
     client.cmd('nomethod', function(err, expectedValue) {
@@ -175,7 +157,10 @@ describe('Client', function() {
   });
   
   describe('invalid credentials', function() {
-    var client = new bitcoin.Client(config.host, config.port, 'baduser', 'badpwd');
+    var badCredentials = clone(config);
+    badCredentials.user = 'baduser';
+    badCredentials.pass = 'badpwd';
+    var client = new bitcoin.Client(badCredentials);
     
     it('should still return client object', function(done) {
       assert.ok(client instanceof bitcoin.Client);
@@ -194,10 +179,14 @@ describe('Client', function() {
   });
   
   describe('creating client on non-listening port', function() {
-    var client = new bitcoin.Client(config.host, 9897, 'baduser', 'badpwd');
+    var badPort = clone(config);
+    badPort.port = 9897;
+    badPort.user = 'baduser';
+    badPort.pass = 'badpwd';
+    var client = new bitcoin.Client(badPort);
     
     it('will return client object', function(done) {
-      assert.ok(typeof client === 'object');
+      assert.ok(client instanceof bitcoin.Client);
       done();
     });
     
