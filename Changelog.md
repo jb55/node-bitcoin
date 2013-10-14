@@ -1,5 +1,12 @@
 # node-bitcoin changelog
 
+## v2.0.0 (2013/10/14)
+* remove deprecated commands
+  * `getMemoryPool`
+  * `getMemorypool`
+* remove deprecated functionality
+  * creating `bitcoin.Client` with more than one argument
+
 ## v1.7.0 (2013/05/05)
 * add missing commands from bitcoind v0.7.0
   * `createMultiSig`
