@@ -3,19 +3,19 @@ BOX=test/testnet-box
 
 test:
 	$(MAKE) test-ssl-no
-	sleep 15
+	sleep 20
 	$(MAKE) clean
 	$(MAKE) test-ssl
 
 test-ssl-no:
 	$(MAKE) start
-	sleep 15
+	sleep 20
 	$(MAKE) run-test
 	$(MAKE) stop
 
 test-ssl:
 	$(MAKE) start-ssl
-	sleep 15
+	sleep 20
 	$(MAKE) run-test-ssl
 	$(MAKE) stop-ssl
 	
@@ -27,6 +27,7 @@ start-ssl:
 	
 stop:
 	$(MAKE) -C $(BOX) stop
+	@while ps -C bitcoind > /dev/null; do sleep 1; done
 
 stop-ssl:
 	$(MAKE) -C $(BOX) stop B1_FLAGS=-rpcssl=1 B2_FLAGS=-rpcssl=1
