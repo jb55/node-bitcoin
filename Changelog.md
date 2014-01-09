@@ -1,5 +1,8 @@
 # node-bitcoin changelog
 
+## v2.0.1 (2014/01/08)
+* default `host` to 'localhost'; `port` to '8332'
+
 ## v2.0.0 (2013/10/14)
 * remove deprecated commands
   * `getMemoryPool`
