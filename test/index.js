@@ -69,6 +69,17 @@ describe('Client', function() {
     });
   });
   
+  describe('getBalance()', function() {
+    it('should return balance without any args', function(done) {
+      var client = makeClient();
+      client.getBalance(function(err, balance) {
+        assert.ifError(err);
+        assert.ok(typeof balance === 'number');
+        done();
+      });
+    });
+  });
+  
   describe('getDifficulty()', function() {
     it('should get difficulty', function(done) {
       var client = makeClient();
