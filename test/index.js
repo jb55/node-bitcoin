@@ -65,7 +65,7 @@ describe('Client', function() {
   describe('getNewAddress()', function() {
     it('should be able to get new address', function(done) {
       var client = makeClient();
-      client.getNewAddress(test.account, function(err, account) {
+      client.getNewAddress(test.account, function(err, address) {
         assert.ifError(err);
         client.getAddressesByAccount(test.account, function(err, addresses) {
           assert.ifError(err);
@@ -101,7 +101,7 @@ describe('Client', function() {
   describe('getInfo()', function() {
     it('should get info', function(done) {
       var client = makeClient();
-      client.getInfo(function(err, info) {
+      client.getInfo(function(err, info, headers) {
         assert.ifError(err);
         notEmpty(info);
         assert.ok(info.errors === '');
@@ -269,6 +269,46 @@ describe('Client', function() {
         response.end();
         server.close();
         done();
+      });
+    });
+    
+  });
+  
+  describe('response headers', function() {
+    var assertResHeaders = function(resHeaders) {
+      assert.ok(resHeaders);
+      assert.ok(resHeaders.server);
+      assert.ok(/bitcoin/.test(resHeaders.server));
+    };
+    it('should be returned for no parameter calls', function(done) {
+      var client = makeClient();
+      client.getInfo(function(err, info, resHeaders) {
+        assert.ifError(err);
+        notEmpty(info);
+        assert.ok(info.errors === '');
+        assertResHeaders(resHeaders);
+        done();
+      });
+    });
+    
+    it('should be returned for 1-parameter call', function(done) {
+      var client = makeClient();
+      client.getNewAddress(test.account, function(err, address, resHeaders) {
+        assert.ifError(err);
+        assert.ok(address);
+        assertResHeaders(resHeaders);
+        done();
+      });
+      
+      it('should be returned for 2-parameter call', function(done) {
+        var client = makeClient();
+        client.listTransactions(test.account, 15, function(err, txs, resHeaders) {
+          assert.ifError(err);
+          assert.ok(txs);
+          assert.ok(Array.isArray(txs));
+          assertResHeaders(resHeaders);
+          done();
+      });
       });
     });
     
