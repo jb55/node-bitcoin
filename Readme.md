@@ -16,18 +16,20 @@ object, or you may call the API directly using the `cmd` method.
 
 ### Create client
 ```js
+// all config options are optional
 var client = new bitcoin.Client({
   host: 'localhost',
   port: 8332,
   user: 'username',
-  pass: 'password'
+  pass: 'password',
+  timeout: 5000
 });
 ```
 
 ### Get balance across all accounts with minimum confirmations of 6
 
 ```js
-client.getBalance('*', 6, function(err, balance) {
+client.getBalance('*', 6, function(err, balance, resHeaders) {
   if (err) return console.log(err);
   console.log('Balance:', balance);
 });
@@ -35,7 +37,7 @@ client.getBalance('*', 6, function(err, balance) {
 ### Getting the balance directly using `cmd`
 
 ```js
-client.cmd('getbalance', '*', 6, function(err, balance){
+client.cmd('getbalance', '*', 6, function(err, balance, resHeaders){
   if (err) return console.log(err);
   console.log('Balance:', balance);
 });
@@ -51,7 +53,7 @@ for (var i = 0; i < 10; ++i) {
     params: ['myaccount']
   });
 }
-client.cmd(batch, function(err, address) {
+client.cmd(batch, function(err, address, resHeaders) {
   if (err) return console.log(err);
   console.log('Address:', address);
 });

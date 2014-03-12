@@ -1,5 +1,10 @@
 # node-bitcoin changelog
 
+## v2.1.0 (unreleased)
+* remove `deprecate` dependency
+* add request timeout option (defaults to 5000ms)
+* add 3rd parameter to callbacks: response headers
+
 ## v2.0.1 (2014/01/08)
 * default `host` to 'localhost'; `port` to '8332'
 
