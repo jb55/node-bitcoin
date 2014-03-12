@@ -1,5 +1,6 @@
 var assert = require('assert'),
     clone = require('clone'),
+    http = require('http'),
     bitcoin = require('../'),
     config = require('./config');
 
@@ -14,6 +15,12 @@ var makeClient = function makeClient() {
 var notEmpty = function notEmpty(data) {
   if (data === 0) return;
   assert.ok(data);
+};
+
+var makeServer = function(port) {
+  var server = http.createServer();
+  server.listen(port);
+  return server;
 };
 
 describe('Client', function() {
@@ -207,6 +214,64 @@ describe('Client', function() {
         done();
       });
     });
+  });
+  
+  describe('request timeouts', function() {
+    it('should occur by default after 5000ms', function(done) {
+      this.timeout(7500);
+      var server = makeServer(19998);
+      var request;
+      var response;
+      server.on('request', function(req, res) {
+        request = req;
+        response = res;
+      });
+      var client = new bitcoin.Client({
+        host: 'localhost',
+        port: 19998,
+        user: 'admin1',
+        pass: '123'
+      });
+      var start = Date.now();
+      client.getInfo(function(err, info) {
+        var delta = Date.now() - start;
+        assert.ok(err instanceof Error);
+        assert.ok(err.code === 'ETIMEDOUT' || err.code === 'ESOCKETTIMEDOUT');
+        assert.ok(delta >= 5000, 'delta should be >= 5000: ' + delta);
+        response.end();
+        server.close();
+        done();
+      });
+    });
+  
+    it('should be customizable', function(done) {
+      this.timeout(4500);
+      var server = makeServer(19999);
+      var request;
+      var response;
+      server.on('request', function(req, res) {
+        request = req;
+        response = res;
+      });
+      var client = new bitcoin.Client({
+        host: 'localhost',
+        port: 19999,
+        user: 'admin1',
+        pass: '123',
+        timeout: 2500
+      });
+      var start = Date.now();
+      client.getInfo(function(err, info) {
+        var delta = Date.now() - start;
+        assert.ok(err instanceof Error);
+        assert.ok(err.code === 'ETIMEDOUT' || err.code === 'ESOCKETTIMEDOUT');
+        assert.ok(delta >= 2500, 'delta should be >= 2500:' + delta);
+        response.end();
+        server.close();
+        done();
+      });
+    });
+    
   });
   
 });
