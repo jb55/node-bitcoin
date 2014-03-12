@@ -1,6 +1,6 @@
 # node-bitcoin changelog
 
-## v2.1.0 (unreleased)
+## v2.1.0 (2014/03/12)
 * remove `deprecate` dependency
 * add request timeout option (defaults to 5000ms)
 * add 3rd parameter to callbacks: response headers
