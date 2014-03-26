@@ -1,5 +1,8 @@
 # node-bitcoin changelog
 
+## v2.1.1 (2014/03/25)
+* change default request timeout from `5000`ms to `30000`ms
+
 ## v2.1.0 (2014/03/12)
 * remove `deprecate` dependency
 * add request timeout option (defaults to 5000ms)
