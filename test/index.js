@@ -24,7 +24,7 @@ var makeServer = function(port) {
 };
 
 describe('Client', function() {
-  
+
   describe('getAccountAddress()', function() {
     it('should be able to get an account address', function(done) {
       var client = makeClient();
@@ -39,7 +39,7 @@ describe('Client', function() {
       });
     });
   });
-  
+
   describe('listTransactions()', function() {
     it('should be able to listTransactions with specific count', function(done) {
       var client = makeClient();
@@ -50,7 +50,7 @@ describe('Client', function() {
         done();
       });
     });
-    
+
     it('should be able to listTransactions without specific count', function(done) {
       var client = makeClient();
       client.listTransactions(test.account, function(err, txs) {
@@ -61,7 +61,7 @@ describe('Client', function() {
       });
     });
   });
-  
+
   describe('getNewAddress()', function() {
     it('should be able to get new address', function(done) {
       var client = makeClient();
@@ -75,7 +75,7 @@ describe('Client', function() {
       });
     });
   });
-  
+
   describe('getBalance()', function() {
     it('should return balance without any args', function(done) {
       var client = makeClient();
@@ -86,7 +86,7 @@ describe('Client', function() {
       });
     });
   });
-  
+
   describe('getDifficulty()', function() {
     it('should get difficulty', function(done) {
       var client = makeClient();
@@ -97,7 +97,7 @@ describe('Client', function() {
       });
     });
   });
-  
+
   describe('getInfo()', function() {
     it('should get info', function(done) {
       var client = makeClient();
@@ -109,7 +109,7 @@ describe('Client', function() {
       });
     });
   });
-  
+
   describe('getHashesPerSec()', function() {
     it('should get hashes per second', function(done) {
       var client = makeClient();
@@ -121,7 +121,7 @@ describe('Client', function() {
       });
     });
   });
-  
+
   describe('help()', function() {
     it('should return help', function(done) {
       var client = makeClient();
@@ -132,7 +132,7 @@ describe('Client', function() {
       });
     });
   });
-  
+
   describe('getWork()', function() {
     it('should get work', function(done) {
       var client = makeClient();
@@ -143,7 +143,7 @@ describe('Client', function() {
       });
     });
   });
-  
+
   it('bitcoin related error should be an Error object', function(done) {
     var client = makeClient();
     client.cmd('nomethod', function(err, expectedValue) {
@@ -154,7 +154,7 @@ describe('Client', function() {
       done();
     });
   });
-  
+
   it('running batch of rpc calls', function(done) {
     this.timeout(5000);
     var batch = [];
@@ -173,18 +173,18 @@ describe('Client', function() {
       if (batchCallbackCount === 10) done();
     });
   });
-  
+
   describe('invalid credentials', function() {
     var badCredentials = clone(config);
     badCredentials.user = 'baduser';
     badCredentials.pass = 'badpwd';
     var client = new bitcoin.Client(badCredentials);
-    
+
     it('should still return client object', function(done) {
       assert.ok(client instanceof bitcoin.Client);
       done();
     });
-    
+
     it('should return status 401 with html', function(done) {
       client.getDifficulty(function(err, difficulty) {
         assert.ok(err instanceof Error);
@@ -195,19 +195,19 @@ describe('Client', function() {
       });
     });
   });
-  
+
   describe('creating client on non-listening port', function() {
     var badPort = clone(config);
     badPort.port = 9897;
     badPort.user = 'baduser';
     badPort.pass = 'badpwd';
     var client = new bitcoin.Client(badPort);
-    
+
     it('will return client object', function(done) {
       assert.ok(client instanceof bitcoin.Client);
       done();
     });
-    
+
     it('should not call callback more than once', function(done) {
       client.listSinceBlock(function(err, result) {
         assert.ok(err instanceof Error);
@@ -215,10 +215,10 @@ describe('Client', function() {
       });
     });
   });
-  
+
   describe('request timeouts', function() {
-    it('should occur by default after 5000ms', function(done) {
-      this.timeout(7500);
+    it('should occur by default after 30000ms', function(done) {
+      this.timeout(31000);
       var server = makeServer(19998);
       var request;
       var response;
@@ -237,13 +237,13 @@ describe('Client', function() {
         var delta = Date.now() - start;
         assert.ok(err instanceof Error);
         assert.ok(err.code === 'ETIMEDOUT' || err.code === 'ESOCKETTIMEDOUT');
-        assert.ok(delta >= 5000, 'delta should be >= 5000: ' + delta);
+        assert.ok(delta >= 30000, 'delta should be >= 30000: ' + delta);
         response.end();
         server.close();
         done();
       });
     });
-  
+
     it('should be customizable', function(done) {
       this.timeout(4500);
       var server = makeServer(19999);
@@ -271,9 +271,9 @@ describe('Client', function() {
         done();
       });
     });
-    
+
   });
-  
+
   describe('response headers', function() {
     var assertResHeaders = function(resHeaders) {
       assert.ok(resHeaders);
@@ -290,7 +290,7 @@ describe('Client', function() {
         done();
       });
     });
-    
+
     it('should be returned for 1-parameter call', function(done) {
       var client = makeClient();
       client.getNewAddress(test.account, function(err, address, resHeaders) {
@@ -299,7 +299,7 @@ describe('Client', function() {
         assertResHeaders(resHeaders);
         done();
       });
-      
+
       it('should be returned for 2-parameter call', function(done) {
         var client = makeClient();
         client.listTransactions(test.account, 15, function(err, txs, resHeaders) {
@@ -311,7 +311,7 @@ describe('Client', function() {
       });
       });
     });
-    
+
   });
-  
+
 });

@@ -22,7 +22,7 @@ var client = new bitcoin.Client({
   port: 8332,
   user: 'username',
   pass: 'password',
-  timeout: 5000
+  timeout: 30000
 });
 ```
 
@@ -67,7 +67,7 @@ recommended to enable `ssl`, otherwise an attacker may intercept your RPC creden
 resulting in theft of your bitcoins.
 
 When enabling `ssl` by setting the configuration option to `true`, the `sslStrict`
-option (verifies the server certificate) will also be enabled by default. It is 
+option (verifies the server certificate) will also be enabled by default. It is
 highly recommended to specify the `sslCa` as well, even if your bitcoind has
 a certificate signed by an actual CA, to ensure you are connecting
 to your own bitcoind.
