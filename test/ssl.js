@@ -3,34 +3,40 @@ var assert = require('assert'),
     clone = require('clone'),
     bitcoin = require('../'),
     config = require('./config');
-    
+
 var getInfo = function(opts, cb) {
   var client = new bitcoin.Client(opts);
   client.getInfo(cb);
 };
-    
+
 describe('Client SSL', function() {
   it('use sslStrict by default', function(done) {
     var opts = clone(config);
     opts.ssl = true;
     getInfo(opts, function(err, info) {
       assert.ok(err instanceof Error);
-      assert.equal(err.message, 'DEPTH_ZERO_SELF_SIGNED_CERT');
+      // node v0.11 adds `code` param to this error
+      // and uses a user-friendly `message`
+      // continue using err.message for v0.8 and v0.10
+      assert.equal(err.code || err.message, 'DEPTH_ZERO_SELF_SIGNED_CERT');
       done();
     });
   });
-  
+
   it('strictSSL should fail with self-signed certificate', function(done) {
     var opts = clone(config);
     opts.ssl = true;
     opts.sslStrict = true;
     getInfo(opts, function(err, info) {
       assert.ok(err instanceof Error);
-      assert.equal(err.message, 'DEPTH_ZERO_SELF_SIGNED_CERT');
+      // node v0.11 adds `code` param to this error
+      // and uses a user-friendly `message`
+      // continue using err.message for v0.8 and v0.10
+      assert.equal(err.code || err.message, 'DEPTH_ZERO_SELF_SIGNED_CERT');
       done();
     });
   });
-  
+
   it('self-signed certificate with sslStrict false', function(done) {
     var opts = clone(config);
     opts.ssl = true;
@@ -41,7 +47,7 @@ describe('Client SSL', function() {
       done();
     });
   });
-  
+
   it('self-signed certificate with sslStrict and CA specified', function(done) {
     var opts = clone(config);
     opts.ssl = true;
@@ -52,5 +58,5 @@ describe('Client SSL', function() {
       done();
     });
   });
-  
+
 });
