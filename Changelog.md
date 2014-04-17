@@ -1,5 +1,8 @@
 # node-bitcoin changelog
 
+## v2.1.2 (2014/04/16)
+* lazy load `http`/`https` module
+
 ## v2.1.1 (2014/03/25)
 * change default request timeout from `5000`ms to `30000`ms
 
