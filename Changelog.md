@@ -1,5 +1,20 @@
 # node-bitcoin changelog
 
+## v2.2.0 (2014/08/29)
+* add commands for bitcoind v0.9.x
+  * `decodeScript`
+  * `dumpWallet`
+  * `getBestBlockHash`
+  * `getBlockchainInfo`
+  * `getNetTotals`
+  * `getNetworkInfo`
+  * `getNetworkHashPs`
+  * `getRawChangeAddress`
+  * `getUnconfirmedBalance`
+  * `getWalletInfo`
+  * `ping`
+  * `verifyChain`
+
 ## v2.1.2 (2014/04/16)
 * lazy load `http`/`https` module
 
