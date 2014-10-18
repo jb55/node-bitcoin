@@ -51,7 +51,7 @@ describe('Client SSL', function() {
   it('self-signed certificate with sslStrict and CA specified', function(done) {
     var opts = clone(config);
     opts.ssl = true;
-    opts.sslCa = fs.readFileSync(__dirname + '/testnet-box/1/testnet3/server.cert');
+    opts.sslCa = fs.readFileSync(__dirname + '/testnet-box/1/regtest/server.cert');
     getInfo(opts, function(err, info) {
       assert.ifError(err);
       assert.ok(info);
