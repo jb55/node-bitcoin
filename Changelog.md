@@ -1,5 +1,10 @@
 # node-bitcoin changelog
 
+## unreleased
+* drop node v0.8.x support
+* update testnet-box
+* update devDependencies
+
 ## v2.2.0 (2014/08/29)
 * add commands for bitcoind v0.9.x
   * `decodeScript`
