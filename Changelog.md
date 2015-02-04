@@ -1,6 +1,6 @@
 # node-bitcoin changelog
 
-## unreleased
+## v2.3.0 (2015/02/04)
 * drop node v0.8.x support
 * update testnet-box
 * update devDependencies
