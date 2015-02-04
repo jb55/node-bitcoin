@@ -4,6 +4,11 @@
 * drop node v0.8.x support
 * update testnet-box
 * update devDependencies
+* add commands for bitcoind v0.10
+  * `estimateFee`
+  * `estimatePriority`
+  * `getChainTips`
+  * `importAddress`
 
 ## v2.2.0 (2014/08/29)
 * add commands for bitcoind v0.9.x
