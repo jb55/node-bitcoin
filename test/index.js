@@ -133,17 +133,6 @@ describe('Client', function() {
     });
   });
 
-  describe('getWork()', function() {
-    it('should get work', function(done) {
-      var client = makeClient();
-      client.getWork(function(err, work) {
-        assert.ifError(err);
-        notEmpty(work);
-        done();
-      });
-    });
-  });
-
   it('bitcoin related error should be an Error object', function(done) {
     var client = makeClient();
     client.cmd('nomethod', function(err, expectedValue) {
