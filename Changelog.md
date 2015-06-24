@@ -1,5 +1,8 @@
 # node-bitcoin changelog
 
+## v2.3.1 (2015/06/24)
+* add missing `getMempoolInfo` for bitcoind v0.10
+
 ## v2.3.0 (2015/02/04)
 * drop node v0.8.x support
 * update testnet-box
