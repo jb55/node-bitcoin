@@ -1,5 +1,11 @@
 # node-bitcoin changelog
 
+## v2.3.2 (2015/06/26)
+* fix bug in test suite that was supposed to detect missing commands
+* add missing commands
+  * `prioritiseTransaction`
+  * `importWallet`
+
 ## v2.3.1 (2015/06/24)
 * add missing `getMempoolInfo` for bitcoind v0.10
 
