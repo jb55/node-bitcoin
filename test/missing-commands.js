@@ -31,7 +31,7 @@ describe('Client Commands', function() {
       assert.ifError(err);
 
       for (var i in helpCommands) {
-        var found = true;
+        var found = false;
         for (var j in commands) {
           if (commands[j] === helpCommands[i]) {
             found = true;
