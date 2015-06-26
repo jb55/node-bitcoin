@@ -3,3 +3,4 @@ test/
 .project
 .gitmodules
 .travis.yml
+Dockerfile
