@@ -1,10 +1,11 @@
+# Dockerfile for running node-bitcoin tests
 FROM freewil/bitcoin-testnet-box
 MAINTAINER Sean Lavine <lavis88@gmail.com>
 
-# install node.js (sudo for bash needed?)
+# install node.js
 USER root
 RUN apt-get install --yes curl
-RUN curl -sL https://deb.nodesource.com/setup_0.12 | bash -
+RUN curl --silent --location https://deb.nodesource.com/setup_0.12 | bash -
 RUN apt-get install --yes nodejs
 
 # set permissions for tester user on project
