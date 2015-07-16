@@ -1,6 +1,6 @@
 # node-bitcoin changelog
 
-## v2.4.0 (unreleased)
+## v2.4.0 (2015/07/16)
 * don't lazy-load http/https modules
 * add command for bitcoind v0.11.0: `getTxOutProof`
 
