@@ -110,18 +110,6 @@ describe('Client', function() {
     });
   });
 
-  describe('getHashesPerSec()', function() {
-    it('should get hashes per second', function(done) {
-      var client = makeClient();
-      client.getHashesPerSec(function(err, data) {
-        assert.ifError(err);
-        notEmpty(data);
-        assert.ok(typeof data === 'number');
-        done();
-      });
-    });
-  });
-
   describe('help()', function() {
     it('should return help', function(done) {
       var client = makeClient();
