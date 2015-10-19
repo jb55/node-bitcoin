@@ -13,8 +13,8 @@
   ],
   "dependencies": {},
   "devDependencies": {
-    "clone": "^0.1.18",
-    "mocha": "^2.1.0"
+    "clone": "^1.0.2",
+    "mocha": "^2.3.3"
   },
   "optionalDependencies": {},
   "repository": {
