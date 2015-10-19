@@ -1,6 +1,8 @@
 # need sudo for docker
 sudo: required
 
+language: node_js
+
 # skip install step (npm install)
 # See http://docs.travis-ci.com/user/customizing-the-build/#Skipping-the-Installation-Step
 install: true
