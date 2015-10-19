@@ -1,5 +1,14 @@
 # node-bitcoin changelog
 
+## v3.0.0 (2015/10/18)
+* make public domain license explicit
+* remove commands dropped in bitcoind v0.11
+  * `getHashesPerSecond`
+  * `getHashesPerSec`
+* add missing commands for bitcoind v0.11
+  * `generate`
+  * `verifyTxOutProof`
+
 ## v2.4.0 (2015/07/16)
 * don't lazy-load http/https modules
 * add command for bitcoind v0.11.0: `getTxOutProof`
