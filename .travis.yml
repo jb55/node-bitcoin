@@ -1,14 +1,16 @@
-language: node_js
+# need sudo for docker
+sudo: required
 
-node_js:
-  - "0.10"
-  - "0.12"
-  - "iojs"
+# skip install step (npm install)
+# See http://docs.travis-ci.com/user/customizing-the-build/#Skipping-the-Installation-Step
+install: true
 
-before_install:
-  - sudo add-apt-repository --yes ppa:bitcoin/bitcoin
-  - sudo apt-get update
-  - sudo apt-get install bitcoind
+services:
+  - docker
 
-after_install:
+before_script:
   - git submodule update --init
+  - docker build -t node-bitcoin .
+
+script:
+  - docker run node-bitcoin
