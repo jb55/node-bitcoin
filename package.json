@@ -26,5 +26,13 @@
   },
   "scripts": {
     "test": "make test"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/freewil/node-bitcoin/issues"
+  },
+  "homepage": "https://github.com/freewil/node-bitcoin#readme",
+  "directories": {
+    "test": "test"
+  },
+  "license": "Unlicense"
 }
