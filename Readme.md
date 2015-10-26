@@ -6,6 +6,8 @@ The API is equivalent to the API document [here](https://en.bitcoin.it/wiki/Orig
 The methods are exposed as lower camelcase methods on the `bitcoin.Client`
 object, or you may call the API directly using the `cmd` method.
 
+This module uses callbacks, which is the prevalent way to work with asynchronous functions in Node.js. If you'd like to instead use promises, then please see the [bitcoin-promise](https://github.com/rcorbish/node-bitcoin-promise) module.
+
 ## Install
 
 `npm install bitcoin`
