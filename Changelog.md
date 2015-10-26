@@ -1,5 +1,8 @@
 # node-bitcoin changelog
 
+## v3.0.1 (2015/10/25)
+* fix redefinition of already defined variable (does not actually affect behavior)
+
 ## v3.0.0 (2015/10/18)
 * make public domain license explicit
 * remove commands dropped in bitcoind v0.11
