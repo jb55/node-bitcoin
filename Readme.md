@@ -18,11 +18,11 @@
 
 node-bitcoin is a simple wrapper for the Bitcoin client's JSON-RPC API.
 
+If starting a new project, I highly encourage you to take a look at the more modern [bitcoin-core](https://github.com/seegno/bitcoin-core).
+
 The API is equivalent to the API document [here](https://en.bitcoin.it/wiki/Original_Bitcoin_client/API_Calls_list).
 The methods are exposed as lower camelcase methods on the `bitcoin.Client`
 object, or you may call the API directly using the `cmd` method.
-
-This module uses callbacks, which is the prevalent way to work with asynchronous functions in Node.js. If you'd like to instead use promises, then please see the [bitcoin-promise](https://github.com/rcorbish/node-bitcoin-promise) module.
 
 ## Install
 
