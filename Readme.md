@@ -18,7 +18,7 @@
 
 node-bitcoin is a simple wrapper for the Bitcoin client's JSON-RPC API.
 
-**Unmaintained, please see [bitcoin-core](https://github.com/seegno/bitcoin-core)**
+**Unmaintained, please see [bitcoin-core](https://github.com/ruimarinho/bitcoin-core)**
 
 The API is equivalent to the API document [here](https://en.bitcoin.it/wiki/Original_Bitcoin_client/API_Calls_list).
 The methods are exposed as lower camelcase methods on the `bitcoin.Client`
