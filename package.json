@@ -7,7 +7,7 @@
     "bitcoin",
     "rpc"
   ],
-  "author": "Bill Casarin <bill@casarin.ca> (jb55.com)",
+  "author": "William Casarin <jb55@jb55.com>",
   "contributors": [
     "Sean Lavine <sean@eternalrise.com>"
   ],
@@ -20,7 +20,7 @@
   "optionalDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git://github.com/freewil/node-bitcoin.git"
+    "url": "git://github.com/jb55/node-bitcoin.git"
   },
   "engines": {
     "node": ">= 0.10.0"
