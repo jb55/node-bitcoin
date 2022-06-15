@@ -1,7 +1,7 @@
 {
   "name": "bitcoin",
   "description": "Communicate with bitcoind via JSON-RPC",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "main": "lib/index.js",
   "keywords": [
     "bitcoin",
@@ -30,9 +30,9 @@
     "test": "make test"
   },
   "bugs": {
-    "url": "https://github.com/freewil/node-bitcoin/issues"
+    "url": "https://github.com/jb55/node-bitcoin/issues"
   },
-  "homepage": "https://github.com/freewil/node-bitcoin#readme",
+  "homepage": "https://github.com/jb55/node-bitcoin",
   "directories": {
     "test": "test"
   },
