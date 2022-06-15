@@ -36,6 +36,7 @@ var client = new bitcoin.Client({
   port: 8332,
   user: 'username',
   pass: 'password',
+  wallet: 'walletname',
   timeout: 30000
 });
 ```
